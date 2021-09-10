@@ -35,7 +35,7 @@ namespace Senai.InLock.WebApi.Controllers
         /// Lista todos os jogos
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "Comum")]    //ROLES NÃO PODE SER EM STRING, MAS SIM EM INT JÁ Q É UM ID
+        [Authorize(Roles = "1, 2")]    
         [HttpGet]
         public IActionResult Get()
         {
@@ -57,7 +57,7 @@ namespace Senai.InLock.WebApi.Controllers
         /// </summary>
         /// <param name="novoJogo"></param>
         /// <returns></returns>
-        [Authorize(Roles =  "Administrador")] //ROLES NÃO PODE SER EM STRING, MAS SIM EM INT JÁ Q É UM ID
+        [Authorize(Roles =  "1")] 
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {
@@ -78,7 +78,7 @@ namespace Senai.InLock.WebApi.Controllers
         /// </summary>
         /// <param name="idJogo"></param>
         /// <returns></returns>
-        [Authorize(Roles =  "Administrador")]    //ROLES NÃO PODE SER EM STRING, MAS SIM EM INT JÁ Q É UM ID
+        [Authorize(Roles =  "1")]   
         [HttpDelete("{idJogo}")]
         public IActionResult Delete(int idJogo)
         {
@@ -107,7 +107,7 @@ namespace Senai.InLock.WebApi.Controllers
         /// </summary>
         /// <param name="idJogo"></param>
         /// <returns></returns>
-        [Authorize(Roles =  "Administrador,Comum")]      //ROLES NÃO PODE SER EM STRING, MAS SIM EM INT JÁ Q É UM ID
+        [Authorize(Roles =  "1, 2")]     
         [HttpGet("{idJogo}")]
         public IActionResult GetById(int idJogo)
         {
@@ -130,7 +130,7 @@ namespace Senai.InLock.WebApi.Controllers
         /// <param name="idJogo"></param>
         /// <param name="jogoDomain"></param>
         /// <returns></returns>
-        [Authorize(Roles = "Administrador, Comum")]       //ROLES NÃO PODE SER EM STRING, MAS SIM EM INT JÁ Q É UM ID
+        [Authorize(Roles = "1, 2")]      
         [HttpPut("{idJogo}")]
         public IActionResult Put(int idJogo, JogoDomain jogoDomain)
         {

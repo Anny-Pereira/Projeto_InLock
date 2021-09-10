@@ -16,7 +16,7 @@ namespace Senai.InLock.WebApi.Repositories
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string queryLogin = "SELECT idUsuario, email, senha, tituloTipoUsuario FROM USUARIO LEFT JOIN TIPOUSUARIO ON USUARIO.idTipoUsuario = TIPOUSUARIO.idTipoUsuario WHERE email = @email AND senha = @senha";
+                string queryLogin = "SELECT idUsuario, Usuario.idTipoUsuario, email, senha, tituloTipoUsuario FROM USUARIO LEFT JOIN TIPOUSUARIO ON USUARIO.idTipoUsuario = TIPOUSUARIO.idTipoUsuario WHERE email = @email AND senha = @senha";
 
                 using (SqlCommand cmd = new SqlCommand(queryLogin, con))
                 {
@@ -31,6 +31,7 @@ namespace Senai.InLock.WebApi.Repositories
                         UsuarioDomain usuario = new UsuarioDomain
                         {
                             idUsuario = Convert.ToInt32(rdr["idUsuario"]),
+                            idTipoUsuario = Convert.ToInt32(rdr[1]),
                             email = rdr["email"].ToString(),
                             senha = rdr["senha"].ToString(),
                             tipoUsuario = new TipoUsuarioDomain() { tituloTipoUsuario = rdr["tituloTipoUsuario"].ToString()}

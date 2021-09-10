@@ -16,5 +16,7 @@ namespace Senai.InLock.WebApi.Interfaces
         /// </summary>
         /// <returns></returns>
         List<EstudioDomain> ListarTodos();
+
+
     }
 }
