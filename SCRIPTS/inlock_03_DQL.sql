@@ -2,7 +2,7 @@ USE INLOCK_GAMES_MANHA;
 GO
 
 --Listar todos os Usuários
-SELECT email, senha, idTipoUsuario FROM USUARIO LEFT JOIN TIPOUSUARIO ON TIPOUSUARIO.idTipoUsuario = USUARIO.idTipoUsuario;
+SELECT email, senha, tituloTipoUsuario FROM USUARIO LEFT JOIN TIPOUSUARIO ON TIPOUSUARIO.idTipoUsuario = USUARIO.idTipoUsuario;
 
 --Listar todos os Estúdios 
 SELECT * FROM ESTUDIO;
@@ -19,4 +19,8 @@ SELECT nomeEstudio, nomeJogo FROM ESTUDIO LEFT JOIN JOGOS ON ESTUDIO.idEstudio =
 --Buscar um usuário por email e senha (login)
 SELECT email, senha FROM USUARIO WHERE email = 'cliente@cliente.com' AND senha = 'cliente';
 
---
+--Buscar um jogo por idJogo
+SELECT nomeJogo, descricao, dataLancamento, valor FROM JOGOS WHERE idJogo = 2;
+
+--Buscar um estúdio por idEstudio
+SELECT nomeEstudio FROM ESTUDIO WHERE idEstudio = 1;

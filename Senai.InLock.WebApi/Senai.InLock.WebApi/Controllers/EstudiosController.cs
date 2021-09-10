@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Senai.InLock.WebApi.Domains;
 using Senai.InLock.WebApi.Interfaces;
 using Senai.InLock.WebApi.Repositories;
 using System;
@@ -16,7 +17,7 @@ namespace Senai.InLock.WebApi.Controllers
     [ApiController]
 
     //TESTAR EM BREVE
-   // [Authorize]
+    //[Authorize]
 
     public class EstudiosController : ControllerBase
     {
@@ -25,6 +26,20 @@ namespace Senai.InLock.WebApi.Controllers
         public EstudiosController()
         {
             _EstudioRepository = new EstudioRepository();
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                List<EstudioDomain> listaEstudios = _EstudioRepository.ListarTodos();
+                return Ok(listaEstudios);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
         }
     }
 }

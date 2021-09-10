@@ -20,8 +20,8 @@ namespace Senai.InLock.WebApi.Interfaces
         /// <summary>
         /// Cadastra um novo jogo
         /// </summary>
-        /// <param name="NovoJogo">Objeto do tipo jogoDomain que será cadastrado</param>
-        void Cadastrar(JogoDomain NovoJogo);
+        /// <param name="novoJogo">Objeto do tipo jogoDomain que será cadastrado</param>
+        void Cadastrar(JogoDomain novoJogo);
 
 
         /// <summary>
@@ -37,7 +37,6 @@ namespace Senai.InLock.WebApi.Interfaces
         /// <param name="idJogo">id do jogo que será buscado</param>
         /// <returns></returns>
         JogoDomain BuscarId(int idJogo);
-
 
         void AtualizarUrl(int idJogo, JogoDomain jogoAtualizado);
 
