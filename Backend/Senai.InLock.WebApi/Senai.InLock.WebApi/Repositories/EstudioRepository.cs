@@ -11,10 +11,12 @@ namespace Senai.InLock.WebApi.Repositories
     public class EstudioRepository : IEstudioRepository
     {
         private string stringConexao = "Data Source= DESKTOP-TUQ4VJR\\SQLEXPRESS; initial catalog= INLOCK_GAMES_MANHA; user id= sa; pwd= senai@132 ";
-
+     
         public List<EstudioDomain> ListarEstudiosJogos()
         {
-            List<EstudioDomain> listaExtra = new List<EstudioDomain>();
+            List<EstudioDomain> listaEstudio = new List<EstudioDomain>();
+
+            //List<JogoDomain> listaJogo = new List<JogoDomain>();
 
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
@@ -31,18 +33,29 @@ namespace Senai.InLock.WebApi.Repositories
                         EstudioDomain estudio = new EstudioDomain()
                         {
                             nomeEstudio = rdr[0].ToString(),
-                            jogoDomain = new JogoDomain()
+
+                            jogoDomain = new List<JogoDomain>()
                             {
-                                nomeJogo = rdr[1].ToString()
+                                JogoDomain novojogo = new JogoDomain()
+                                {
+                                    nomeJogo = rdr[1].ToString()
+                                }
+                                
                             }
+                            
+                           
                         };
 
-                        listaExtra.Add(estudio);
+                        listaEstudio.Add(estudio);
                     }
-                }
+
+                    
+                } 
+             return listaEstudio;
             }
-            return listaExtra;
         }
+
+
 
         public List<EstudioDomain> ListarTodos()
         {
@@ -71,6 +84,8 @@ namespace Senai.InLock.WebApi.Repositories
             }
             return listaEstudios;
         }
-    }
-}
+    }}
+
+    
+
 
