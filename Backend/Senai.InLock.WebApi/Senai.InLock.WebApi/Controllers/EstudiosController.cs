@@ -28,6 +28,19 @@ namespace Senai.InLock.WebApi.Controllers
             _EstudioRepository = new EstudioRepository();
         }
 
+        [HttpGet("Jogos")]
+        public IActionResult GetJogos()
+        {
+            try
+            {
+                List<EstudioDomain> listaExtra = _EstudioRepository.ListarEstudiosJogos();
+                return Ok(listaExtra);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
 
         /// <summary>
         /// Lista todos os estúdios

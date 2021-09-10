@@ -24,9 +24,3 @@ SELECT nomeJogo, descricao, dataLancamento, valor FROM JOGOS WHERE idJogo = 2;
 
 --Buscar um estúdio por idEstudio
 SELECT nomeEstudio FROM ESTUDIO WHERE idEstudio = 1;
-
-
-UPDATE JOGOS SET idEstudio = 2, nomeJogo = 'KarateKid', descricao = 'Jogo de karatê', dataLancamento = '2020-02-20', valor = 12.00 WHERE idJogo = 4;
-
-
-SELECT * FROM TipoUsuario
