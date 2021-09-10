@@ -34,13 +34,9 @@ namespace Senai.InLock.WebApi.Repositories
                         {
                             nomeEstudio = rdr[0].ToString(),
 
-                            jogoDomain = new List<JogoDomain>()
+                            jogoDomain = new JogoDomain()
                             {
-                                JogoDomain novojogo = new JogoDomain()
-                                {
-                                    nomeJogo = rdr[1].ToString()
-                                }
-                                
+                                 nomeJogo = rdr[1].ToString()
                             }
                             
                            
