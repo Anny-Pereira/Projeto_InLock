@@ -17,10 +17,16 @@ SELECT nomeJogo, nomeEstudio FROM JOGOS LEFT JOIN ESTUDIO ON JOGOS.idEstudio = E
 SELECT nomeEstudio, nomeJogo FROM ESTUDIO LEFT JOIN JOGOS ON ESTUDIO.idEstudio = JOGOS.idEstudio;
 
 --Buscar um usuário por email e senha (login)
-SELECT email, senha FROM USUARIO WHERE email = 'cliente@cliente.com' AND senha = 'cliente';
+SELECT email, senha, tituloTipoUsuario FROM USUARIO LEFT JOIN TIPOUSUARIO ON USUARIO.idTipoUsuario = TIPOUSUARIO.idTipoUsuario WHERE email = 'cliente@cliente.com' AND senha = 'cliente';
 
 --Buscar um jogo por idJogo
 SELECT nomeJogo, descricao, dataLancamento, valor FROM JOGOS WHERE idJogo = 2;
 
 --Buscar um estúdio por idEstudio
 SELECT nomeEstudio FROM ESTUDIO WHERE idEstudio = 1;
+
+
+UPDATE JOGOS SET idEstudio = 2, nomeJogo = 'KarateKid', descricao = 'Jogo de karatê', dataLancamento = '2020-02-20', valor = 12.00 WHERE idJogo = 4;
+
+
+SELECT * FROM TipoUsuario

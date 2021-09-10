@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Senai.InLock.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Senai.InLock.WebApi.Controllers.EstudiosController.Get">
+            <summary>
+            Lista todos os estúdios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Controllers.JogosController.Get">
+            <summary>
+            Lista todos os jogos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Controllers.JogosController.Post(Senai.InLock.WebApi.Domains.JogoDomain)">
+            <summary>
+            Cadastra um novo jogo
+            </summary>
+            <param name="novoJogo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Controllers.JogosController.Delete(System.Int32)">
+            <summary>
+            Deleta um jogo pelo seu id
+            </summary>
+            <param name="idJogo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Controllers.JogosController.GetById(System.Int32)">
+            <summary>
+            Busca um jogo pelo seu id
+            </summary>
+            <param name="idJogo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Controllers.JogosController.Put(System.Int32,Senai.InLock.WebApi.Domains.JogoDomain)">
+            <summary>
+            Atualiza um jogo através de seu id
+            </summary>
+            <param name="idJogo"></param>
+            <param name="jogoDomain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Controllers.UsuariosController.LoginPost(Senai.InLock.WebApi.Domains.UsuarioDomain)">
+            <summary>
+            Autentica um usuário
+            </summary>
+            <param name="usuarioLogado"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Senai.InLock.WebApi.Interfaces.IEstudioRepository">
+            <summary>
+            Interface responsável pelo repositório EstudioRepository
+            </summary>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Interfaces.IEstudioRepository.ListarTodos">
+            <summary>
+            Lista todos os estudios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Senai.InLock.WebApi.Interfaces.IJogoRepository">
+            <summary>
+            Interface responsável pelo repositório JopgoRepository
+            </summary>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Interfaces.IJogoRepository.ListarTodos">
+            <summary>
+            Retorna todos os jogos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Interfaces.IJogoRepository.Cadastrar(Senai.InLock.WebApi.Domains.JogoDomain)">
+            <summary>
+            Cadastra um novo jogo
+            </summary>
+            <param name="novoJogo">Objeto do tipo jogoDomain que será cadastrado</param>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Interfaces.IJogoRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um jogo
+            </summary>
+            <param name="idJogo">id do jogo que será deletado</param>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Interfaces.IJogoRepository.BuscarId(System.Int32)">
+            <summary>
+            Busca um jogo por id
+            </summary>
+            <param name="idJogo">id do jogo que será buscado</param>
+            <returns></returns>
+        </member>
+        <member name="T:Senai.InLock.WebApi.Interfaces.IUsuarioRepository">
+            <summary>
+            Interface responsável pelo Repositório UsuarioRepository
+            </summary>
+        </member>
+        <member name="M:Senai.InLock.WebApi.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Valida o usuário
+            </summary>
+            <param name="email"></param>
+            <param name="senha"></param>
+            <returns>Um objeto do tipo UsuarioDomain que foi buscado</returns>
+        </member>
+    </members>
+</doc>
