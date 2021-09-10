@@ -11,6 +11,39 @@ namespace Senai.InLock.WebApi.Repositories
     public class EstudioRepository : IEstudioRepository
     {
         private string stringConexao = "Data Source= DESKTOP-TUQ4VJR\\SQLEXPRESS; initial catalog= INLOCK_GAMES_MANHA; user id= sa; pwd= senai@132 ";
+
+        public List<EstudioDomain> ListarEstudiosJogos()
+        {
+            List<EstudioDomain> listaExtra = new List<EstudioDomain>();
+
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelectAll = "SELECT nomeEstudio, nomeJogo FROM ESTUDIO LEFT JOIN JOGOS ON ESTUDIO.idEstudio = JOGOS.idEstudio;";
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
+                {
+                    con.Open();
+                    rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        EstudioDomain estudio = new EstudioDomain()
+                        {
+                            nomeEstudio = rdr[0].ToString(),
+                            jogoDomain = new JogoDomain()
+                            {
+                                nomeJogo = rdr[1].ToString()
+                            }
+                        };
+
+                        listaExtra.Add(estudio);
+                    }
+                }
+            }
+            return listaExtra;
+        }
+
         public List<EstudioDomain> ListarTodos()
         {
             List<EstudioDomain> listaEstudios = new List<EstudioDomain>();

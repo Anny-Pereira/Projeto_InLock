@@ -17,6 +17,6 @@ namespace Senai.InLock.WebApi.Interfaces
         /// <returns></returns>
         List<EstudioDomain> ListarTodos();
 
-
+        List<EstudioDomain> ListarEstudiosJogos();
     }
 }
