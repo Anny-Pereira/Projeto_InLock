@@ -29,6 +29,11 @@ namespace Senai.InLock.WebApi.Controllers
             _JogoRepository = new JogoRepository();
         }
 
+
+        /// <summary>
+        /// Lista todos os jogos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -43,6 +48,13 @@ namespace Senai.InLock.WebApi.Controllers
             }
         }
 
+
+
+        /// <summary>
+        /// Cadastra um novo jogo
+        /// </summary>
+        /// <param name="novoJogo"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {
@@ -57,7 +69,13 @@ namespace Senai.InLock.WebApi.Controllers
             }
         }
 
-        [HttpDelete]
+
+        /// <summary>
+        /// Deleta um jogo pelo seu id
+        /// </summary>
+        /// <param name="idJogo"></param>
+        /// <returns></returns>
+        [HttpDelete("{id}")]
         public IActionResult Delete(int idJogo)
         {
             try
@@ -71,6 +89,12 @@ namespace Senai.InLock.WebApi.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Busca um jogo pelo seu id
+        /// </summary>
+        /// <param name="idJogo"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult GetById(int idJogo)
         {
@@ -85,6 +109,14 @@ namespace Senai.InLock.WebApi.Controllers
             }
         }
 
+
+
+        /// <summary>
+        /// Atualiza um jogo através de seu id
+        /// </summary>
+        /// <param name="idJogo"></param>
+        /// <param name="jogoDomain"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(int idJogo, JogoDomain jogoDomain)
         {

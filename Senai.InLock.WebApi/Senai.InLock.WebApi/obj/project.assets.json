@@ -454,19 +454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cliente\\.nuget\\packages\\": {}
+    "C:\\Users\\elilt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cliente\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\Projeto_InLock\\Senai.InLock.WebApi\\Senai.InLock.WebApi\\Senai.InLock.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\elilt\\OneDrive\\Documentos\\SENAI\\Projeto_InLock\\Senai.InLock.WebApi\\Senai.InLock.WebApi\\Senai.InLock.WebApi.csproj",
       "projectName": "Senai.InLock.WebApi",
-      "projectPath": "C:\\Users\\cliente\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\Projeto_InLock\\Senai.InLock.WebApi\\Senai.InLock.WebApi\\Senai.InLock.WebApi.csproj",
-      "packagesPath": "C:\\Users\\cliente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cliente\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\Projeto_InLock\\Senai.InLock.WebApi\\Senai.InLock.WebApi\\obj\\",
+      "projectPath": "C:\\Users\\elilt\\OneDrive\\Documentos\\SENAI\\Projeto_InLock\\Senai.InLock.WebApi\\Senai.InLock.WebApi\\Senai.InLock.WebApi.csproj",
+      "packagesPath": "C:\\Users\\elilt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\elilt\\OneDrive\\Documentos\\SENAI\\Projeto_InLock\\Senai.InLock.WebApi\\Senai.InLock.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\elilt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

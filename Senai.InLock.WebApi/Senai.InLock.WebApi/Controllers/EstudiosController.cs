@@ -28,6 +28,11 @@ namespace Senai.InLock.WebApi.Controllers
             _EstudioRepository = new EstudioRepository();
         }
 
+
+        /// <summary>
+        /// Lista todos os estúdios
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
