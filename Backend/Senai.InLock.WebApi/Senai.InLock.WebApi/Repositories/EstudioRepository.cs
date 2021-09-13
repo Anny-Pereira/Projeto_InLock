@@ -21,28 +21,61 @@ namespace Senai.InLock.WebApi.Repositories
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
                 string querySelectAll = "SELECT nomeEstudio, nomeJogo FROM ESTUDIO LEFT JOIN JOGOS ON ESTUDIO.idEstudio = JOGOS.idEstudio;";
+               
+
+                con.Open();
+
                 SqlDataReader rdr;
 
                 using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
                 {
-                    con.Open();
+                    
                     rdr = cmd.ExecuteReader();
 
                     while (rdr.Read())
                     {
+                        List<JogoDomain> listaJogos = new List<JogoDomain>();
+
                         EstudioDomain estudio = new EstudioDomain()
                         {
                             nomeEstudio = rdr[0].ToString(),
-
-                            jogoDomain = new JogoDomain()
-                            {
-                                 nomeJogo = rdr[1].ToString()
-                            }
-                            
-                           
                         };
 
-                        listaEstudio.Add(estudio);
+                        using(SqlConnection con2 = new SqlConnection(stringConexao))
+                        {
+                            string querySelectGames = "SELECT idJogo, nomeJogo, descricao, dataLancamento, valor FROM JOGO WHERE idEstudio = @idEstudio";
+
+                            con2.Open();
+
+                            SqlDataReader rdrGames;
+
+                            using(SqlCommand cmdGames = new SqlCommand(querySelectGames, con2))
+                            {
+                                cmdGames.Parameters.AddWithValue("@idEstudio", estudio.idEstudio);
+
+                                rdrGames = cmdGames.ExecuteReader();
+
+                                while(rdrGames.Read())
+                                {
+                                    JogoDomain jogo = new JogoDomain()
+                                    {
+                                        idJogo = Convert.ToInt32(rdrGames[0]),
+                                        nomeJogo = rdrGames[1].ToString(),
+                                        descricao = rdrGames[2].ToString(),
+                                        dataLancamento = Convert.ToDateTime(rdrGames[3]),
+                                        valor = Convert.ToDecimal(rdrGames[4])
+                                    };
+
+                                    listaJogos.Add(jogo);
+                                }
+                            }
+
+                            estudio.listaJogos = listaJogos;
+                            listaEstudio.Add(estudio);
+
+                        }
+
+                       
                     }
 
                     

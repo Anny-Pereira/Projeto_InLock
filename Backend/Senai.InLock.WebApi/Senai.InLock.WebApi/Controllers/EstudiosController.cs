@@ -33,8 +33,7 @@ namespace Senai.InLock.WebApi.Controllers
         {
             try
             {
-                List<EstudioDomain> listaExtra = _EstudioRepository.ListarEstudiosJogos();
-                return Ok(listaExtra);
+                return Ok(_EstudioRepository.ListarEstudiosJogos());
             }
             catch (Exception erro)
             {
