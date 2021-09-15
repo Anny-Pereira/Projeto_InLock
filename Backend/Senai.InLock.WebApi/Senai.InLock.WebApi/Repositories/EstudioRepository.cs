@@ -20,7 +20,7 @@ namespace Senai.InLock.WebApi.Repositories
 
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectAll = "SELECT nomeEstudio, nomeJogo FROM ESTUDIO LEFT JOIN JOGOS ON ESTUDIO.idEstudio = JOGOS.idEstudio;";
+                string querySelectAll = "SELECT * FROM ESTUDIO;";
                
 
                 con.Open();
@@ -38,12 +38,13 @@ namespace Senai.InLock.WebApi.Repositories
 
                         EstudioDomain estudio = new EstudioDomain()
                         {
-                            nomeEstudio = rdr[0].ToString(),
+                            idEstudio = Convert.ToInt32(rdr[0]),
+                            nomeEstudio = rdr[1].ToString(),
                         };
 
                         using(SqlConnection con2 = new SqlConnection(stringConexao))
                         {
-                            string querySelectGames = "SELECT idJogo, nomeJogo, descricao, dataLancamento, valor FROM JOGO WHERE idEstudio = @idEstudio";
+                            string querySelectGames = "SELECT idJogo, nomeJogo, descricao, dataLancamento, valor FROM JOGOS WHERE idEstudio = @idEstudio";
 
                             con2.Open();
 
